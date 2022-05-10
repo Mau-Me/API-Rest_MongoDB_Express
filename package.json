@@ -4,13 +4,17 @@
   "description": "Api construida no curso da Alura: Api Rest com Express e MongoDB",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Mau-Me/API-Rest_MongoDB_Express.git"
+    "url": "https://github.com/Mau-Me/API-Rest_MongoDB_Express"
+  },
+  "author": {
+    "name": "Mauricio Souza Menezes <Mau-Me>",
+    "email": "mauriciosm95@gmail.com",
+    "url": "http://mau-me.github.io/"
   },
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Mau-Me",
   "license": "ISC"
 }
