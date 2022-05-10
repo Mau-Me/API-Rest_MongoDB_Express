@@ -2,6 +2,10 @@
   "name": "api_rest_express_mongodb",
   "version": "1.0.0",
   "description": "Api construida no curso da Alura: Api Rest com Express e MongoDB",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mau-Me/API-Rest_MongoDB_Express.git"
+  },
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
