@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
-mongoose.connect(
-  "mongodb+srv://maume:1374213742@cluster0.igj44.mongodb.net/Alura_Cursos"
-);
+const MongoDB_URI = process.env.MONGODB_URI;
+
+mongoose.connect(MongoDB_URI);
 
 const db = mongoose.connection;
 
