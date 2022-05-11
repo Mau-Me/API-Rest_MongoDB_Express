@@ -1,23 +1,29 @@
-import livros from "../src/models/Livro.js";
+import livros from "../models/Livro.js";
 
 class LivroController {
   static listarLivros(req, res) {
-    livros.find((err, livros) => {
-      res.json(livros);
-    });
+    livros
+      .find()
+      .populate("autor")
+      .exec((err, livros) => {
+        res.json(livros);
+      });
   }
 
   static listarLivrosPorId(req, res) {
     const id = req.params.id;
-    livros.findById(id, (err, result) => {
-      if (err) {
-        res
-          .status(406)
-          .send({ message: `Segue erro ao buscar o livro: ${err.message}` });
-      }
+    livros
+      .findById(id)
+      .populate("autor")
+      .exec((err, result) => {
+        if (err) {
+          res
+            .status(406)
+            .send({ message: `Segue erro ao buscar o livro: ${err.message}` });
+        }
 
-      res.json(result);
-    });
+        res.json(result);
+      });
   }
 
   static cadastrarLivro(req, res) {
@@ -56,6 +62,19 @@ class LivroController {
       }
 
       res.status(204).end();
+    });
+  }
+
+  static listarLivrosPorEditora(req, res) {
+    const editora = req.query.editora;
+    livros.find({ editora: editora }, {}, (err, result) => {
+      if (err) {
+        res
+          .status(406)
+          .send({ message: `Segue erro ao buscar o livro: ${err.message}` });
+      }
+
+      res.json(result);
     });
   }
 }
